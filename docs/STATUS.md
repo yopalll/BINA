@@ -2,7 +2,40 @@
 
 > Dokumen ini adalah hasil audit menyeluruh terhadap kondisi kode saat ini.
 > Konteks proyek: **Lomba / Hackathon (fokus demo)**.
-> Tanggal audit: 15 Juli 2026.
+> Tanggal audit awal: 15 Juli 2026 · **Diperbarui: 16 Juli 2026** (setelah eksekusi roadmap).
+
+---
+
+## 0. Pembaruan 16 Juli 2026 — Roadmap Dieksekusi ✅
+
+Seluruh gap kritis pada audit awal (di bawah) **sudah dikerjakan**. Ringkasan yang berubah:
+
+| Sebelumnya ❌/🟡 | Sekarang | Bukti |
+|---|---|---|
+| 0 controller | ✅ 10 controller (Auth, Dashboard, Forum, Karya, Battle, Leaderboard, Aksesibilitas, Offline, Guru, Admin, Tts) | `app/Http/Controllers/` |
+| Auth putus | ✅ Login/logout jalan, guard role guru/admin | `AuthController`, `EnsureRole` |
+| `auth.user` tak dibagi | ✅ Dibagikan + tampil di sidebar | `HandleInertiaRequests::share()` |
+| Semua halaman mock | ✅ Semua baca data nyata dari DB | seeder + controllers |
+| Filter kata kasar tak dipakai | ✅ Aktif di input forum & karya (efek instan) | `lib/profanity.js`, `useProfanityFilter` |
+| AI Llama belum ada | ✅ Moderasi forum (Job async) + fallback heuristik | `LlamaService`, `ModerateForumReply` |
+| TTS belum ada | ✅ `SpeakButton` (Azure + fallback Web Speech) | `Components/SpeakButton.jsx`, `TtsController` |
+| Upload R2 belum ada | ✅ Upload Karya ke R2 (fallback disk lokal) | `KaryaController@store` |
+| Battle kurang state | ✅ Matchmaking (cari/tantang/ditemukan), timer nyata, skoring, review benar/salah | `Battle/*` |
+| Analitik guru & admin | ✅ `Guru/Analytics` (P5) + `Admin/Dashboard` gaya guru | dibuat baru |
+| Aksesibilitas tak persisten | ✅ Context global, kontras & skala teks diterapkan + disimpan | `AccessibilityProvider` |
+| Offline belum ada | ✅ Service worker + localStorage + indikator online (demonstratif) | `public/sw.js`, `Offline/Index` |
+| Tidak ada test domain | ✅ 12 test (auth, RBAC, forum, moderasi, battle, aksesibilitas) — semua lolos | `tests/Feature/SmokeTest.php` |
+
+**Keputusan pemilik (16 Juli):** kredensial live belum ada → semua integrasi dibangun dengan
+**fallback** (tinggal isi `.env` untuk aktif live); fitur AI fokus **moderasi forum**;
+Dashboard Admin **mengikuti gaya guru**; Offline **demonstratif**.
+
+**Akun demo** (password semua: `password`): `siswa@bina.id`, `guru@bina.id`, `admin@bina.id`.
+
+Sisa yang sengaja ditunda (opsional, bukan blocker demo): voice-reply rekam audio,
+offline sync konflik-resolusi penuh, registrasi mandiri (self-register).
+
+---
 
 ---
 

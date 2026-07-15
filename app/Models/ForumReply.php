@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ForumReply extends Model
 {
-    protected $fillable = ['forum_thread_id', 'user_id', 'body', 'voice_url', 'is_moderated', 'reactions'];
+    protected $fillable = [
+        'forum_thread_id', 'user_id', 'body', 'voice_url',
+        'is_moderated', 'moderation_reason', 'moderation_source', 'reactions',
+    ];
 
     protected function casts(): array
     {

@@ -10,7 +10,7 @@ class ForumThread extends Model
 {
     protected $fillable = [
         'forum_category_id', 'user_id', 'title', 'body',
-        'is_pinned', 'is_locked', 'is_moderated', 'last_activity_at',
+        'is_pinned', 'is_locked', 'is_moderated', 'reply_count', 'last_activity_at',
     ];
 
     protected function casts(): array

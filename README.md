@@ -96,6 +96,22 @@ php artisan migrate
 php artisan db:seed
 ```
 
+### Akun demo
+
+Setelah seeding, tersedia akun berikut (kata sandi semua: `password`) — tombol
+"Akun Demo" di halaman login mengisinya otomatis:
+
+| Peran | Email |
+|---|---|
+| Siswa | `siswa@bina.id` |
+| Guru | `guru@bina.id` |
+| Admin | `admin@bina.id` |
+
+> **Catatan fitur live vs fallback:** aplikasi berjalan penuh tanpa kredensial eksternal.
+> Moderasi AI memakai heuristik bila `LLAMA_API_KEY` kosong; Text-to-Speech memakai Web Speech
+> API peramban bila `AZURE_SPEECH_KEY` kosong; upload media jatuh ke disk lokal bila R2 belum
+> dikonfigurasi. Isi variabel di `.env` untuk mengaktifkan versi live-nya.
+
 Isi juga variabel layanan eksternal di `.env` sesuai kebutuhan (opsional untuk menjalankan
 UI secara lokal, wajib untuk fitur AI/TTS/storage yang sesungguhnya):
 

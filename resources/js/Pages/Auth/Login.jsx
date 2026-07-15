@@ -89,11 +89,28 @@ export default function Login() {
                         >
                             {processing ? 'Memproses...' : 'Masuk'}
                         </button>
-
-                        <p style={{ fontSize: 14, color: 'var(--color-outline)' }}>
-                            Belum punya akun? <a href="/register" style={{ color: 'var(--color-primary)', fontWeight: 600 }}>Daftar</a>
-                        </p>
                     </form>
+
+                    {/* Demo credentials — klik untuk mengisi otomatis */}
+                    <div style={{ marginTop: 'var(--space-base)', padding: 'var(--space-base)', borderRadius: 'var(--rounded)', background: 'var(--color-surface-container)', textAlign: 'left' }}>
+                        <div className="text-label-sm" style={{ color: 'var(--color-primary)', marginBottom: 'var(--space-sm)' }}>🔑 Akun Demo (klik untuk isi)</div>
+                        {[
+                            { role: 'Siswa', email: 'siswa@bina.id' },
+                            { role: 'Guru', email: 'guru@bina.id' },
+                            { role: 'Admin', email: 'admin@bina.id' },
+                        ].map((acc) => (
+                            <button
+                                key={acc.email}
+                                type="button"
+                                onClick={() => { setData('email', acc.email); setData('password', 'password'); }}
+                                style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '6px 8px', borderRadius: 'var(--rounded-sm)', fontSize: 13, marginBottom: 2 }}
+                            >
+                                <span style={{ fontWeight: 600 }}>{acc.role}</span>
+                                <span style={{ color: 'var(--color-outline)' }}>{acc.email}</span>
+                            </button>
+                        ))}
+                        <div style={{ fontSize: 11, color: 'var(--color-outline)', marginTop: 4 }}>Kata sandi semua akun: <strong>password</strong></div>
+                    </div>
                 </div>
             </div>
         </>

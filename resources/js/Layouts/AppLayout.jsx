@@ -1,5 +1,5 @@
-import { Link, usePage } from '@inertiajs/react';
-import { useState } from 'react';
+import { Link, router, usePage } from '@inertiajs/react';
+import { useState, useEffect } from 'react';
 
 const NAV_ITEMS = [
     { name: 'Dashboard', href: '/', icon: '🏠' },
@@ -11,10 +11,44 @@ const NAV_ITEMS = [
     { name: 'Offline Sync', href: '/offline', icon: '📶' },
 ];
 
+const ROLE_NAV = {
+    Guru: [
+        { name: 'Dashboard Guru', href: '/guru/dashboard', icon: '📋' },
+        { name: 'Analitik AI', href: '/guru/analitik', icon: '📊' },
+    ],
+    Admin: [
+        { name: 'Dashboard Guru', href: '/guru/dashboard', icon: '📋' },
+        { name: 'Analitik AI', href: '/guru/analitik', icon: '📊' },
+        { name: 'Dashboard Admin', href: '/admin/dashboard', icon: '🛠️' },
+    ],
+};
+
+function FlashToast() {
+    const { flash } = usePage().props;
+    const [msg, setMsg] = useState(null);
+
+    useEffect(() => {
+        const next = flash?.success
+            ? { type: 'success', text: flash.success }
+            : flash?.error
+                ? { type: 'error', text: flash.error }
+                : null;
+        if (next) {
+            setMsg(next);
+            const t = setTimeout(() => setMsg(null), 4000);
+            return () => clearTimeout(t);
+        }
+    }, [flash]);
+
+    if (!msg) return null;
+    return <div className={`toast toast-${msg.type}`} role="status">{msg.text}</div>;
+}
+
 export default function AppLayout({ children, title }) {
     const { auth } = usePage().props;
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const currentUrl = usePage().url;
+    const navItems = [...NAV_ITEMS, ...(ROLE_NAV[auth?.user?.role] || [])];
 
     return (
         <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--color-surface)' }}>
@@ -79,8 +113,8 @@ export default function AppLayout({ children, title }) {
                 </div>
 
                 {/* Nav Items */}
-                <nav style={{ flex: 1, padding: 'var(--space-sm)', display: 'flex', flexDirection: 'column', gap: 4 }}>
-                    {NAV_ITEMS.map((item) => {
+                <nav style={{ flex: 1, padding: 'var(--space-sm)', display: 'flex', flexDirection: 'column', gap: 4, overflowY: 'auto' }}>
+                    {navItems.map((item) => {
                         const isActive = currentUrl === item.href || currentUrl.startsWith(item.href + '/');
                         return (
                             <Link
@@ -123,7 +157,7 @@ export default function AppLayout({ children, title }) {
                         {auth?.user?.name?.charAt(0) || 'U'}
                     </div>
                     {sidebarOpen && (
-                        <div style={{ overflow: 'hidden' }}>
+                        <div style={{ overflow: 'hidden', flex: 1 }}>
                             <div style={{ fontWeight: 600, fontSize: 14, whiteSpace: 'nowrap' }}>
                                 {auth?.user?.name || 'Pengguna'}
                             </div>
@@ -131,6 +165,17 @@ export default function AppLayout({ children, title }) {
                                 {auth?.user?.role || 'Siswa'}
                             </div>
                         </div>
+                    )}
+                    {sidebarOpen && (
+                        <button
+                            onClick={() => router.post('/logout')}
+                            title="Keluar"
+                            aria-label="Keluar"
+                            className="btn-ghost"
+                            style={{ width: 36, height: 36, borderRadius: 'var(--rounded-full)', fontSize: 18 }}
+                        >
+                            🚪
+                        </button>
                     )}
                 </div>
             </aside>
@@ -194,6 +239,7 @@ export default function AppLayout({ children, title }) {
                 </header>
 
                 {/* Page Content */}
+                <FlashToast />
                 <div style={{ padding: 'var(--space-lg)' }} className="animate-fade-in">
                     {children}
                 </div>

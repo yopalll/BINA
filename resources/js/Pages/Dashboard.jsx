@@ -8,12 +8,7 @@ const QUICK_ACTIONS = [
     { icon: '🏆', label: 'Leaderboard', desc: 'Peringkat karakter', color: '#924c0d', href: '/leaderboard' },
 ];
 
-const RECENT_ACTIVITIES = [
-    { icon: '✅', text: 'Aksi "Buang Sampah" disetujui oleh Guru', time: '2 jam lalu', color: '#00696b' },
-    { icon: '⚔️', text: 'Kamu menang Battle melawan Rina!', time: '5 jam lalu', color: '#e8914f' },
-    { icon: '❤️', text: '3 teman menyukai karyamu', time: '1 hari lalu', color: '#ba1a1a' },
-    { icon: '🏅', text: 'Lencana "Duta Anti-Hoaks" diraih!', time: '2 hari lalu', color: '#924c0d' },
-];
+const ACTIVITY_COLORS = ['#00696b', '#e8914f', '#ba1a1a', '#924c0d', '#5fb7b9'];
 
 function StatCard({ icon, label, value, trend, color }) {
     return (
@@ -55,7 +50,12 @@ function StatCard({ icon, label, value, trend, color }) {
     );
 }
 
-export default function Dashboard() {
+export default function Dashboard({ stats, weeklyPoints = 0, recentActivities = [] }) {
+    const activities = recentActivities.map((a, i) => ({
+        ...a,
+        color: ACTIVITY_COLORS[i % ACTIVITY_COLORS.length],
+    }));
+
     return (
         <AppLayout title="Dashboard">
             <Head title="Dashboard" />
@@ -99,16 +99,16 @@ export default function Dashboard() {
                 </h2>
                 <p style={{ fontSize: 16, opacity: 0.9, marginTop: 8, position: 'relative', maxWidth: 500 }}>
                     Mari lanjutkan perjalanan belajar dan membangun karakter bersama.
-                    Kamu sudah mengumpulkan <strong>127 Poin Karakter</strong> minggu ini!
+                    Kamu sudah mengumpulkan <strong>{weeklyPoints} Poin Karakter</strong> minggu ini!
                 </p>
             </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-4" style={{ gap: 'var(--space-base)', marginBottom: 'var(--space-lg)' }}>
-                <StatCard icon="⭐" label="Poin Karakter" value="1.284" trend="↑ 12%" color="#5fb7b9" />
-                <StatCard icon="📝" label="Karya Disetujui" value="23" trend="↑ 3" color="#e8914f" />
-                <StatCard icon="⚔️" label="Battle Menang" value="18" color="#ba1a1a" />
-                <StatCard icon="🏅" label="Lencana" value="7" color="#924c0d" />
+                <StatCard icon="⭐" label="Poin Karakter" value={(stats?.character_points ?? 0).toLocaleString('id-ID')} color="#5fb7b9" />
+                <StatCard icon="📝" label="Karya Disetujui" value={stats?.approved_karya ?? 0} color="#e8914f" />
+                <StatCard icon="⚔️" label="Battle Menang" value={stats?.battle_wins ?? 0} color="#ba1a1a" />
+                <StatCard icon="🏅" label="Lencana" value={stats?.badges ?? 0} color="#924c0d" />
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-lg)' }}>
@@ -167,15 +167,18 @@ export default function Dashboard() {
                         Aktivitas Terbaru
                     </h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
-                        {RECENT_ACTIVITIES.map((activity, idx) => (
+                        {activities.length === 0 && (
+                            <p style={{ color: 'var(--color-outline)', fontSize: 14 }}>Belum ada aktivitas. Ayo mulai berkarya!</p>
+                        )}
+                        {activities.map((activity, idx) => (
                             <div
                                 key={idx}
                                 style={{
                                     display: 'flex',
                                     alignItems: 'flex-start',
                                     gap: 'var(--space-md)',
-                                    paddingBottom: idx < RECENT_ACTIVITIES.length - 1 ? 'var(--space-md)' : 0,
-                                    borderBottom: idx < RECENT_ACTIVITIES.length - 1 ? '1px solid var(--color-outline-variant)' : 'none',
+                                    paddingBottom: idx < activities.length - 1 ? 'var(--space-md)' : 0,
+                                    borderBottom: idx < activities.length - 1 ? '1px solid var(--color-outline-variant)' : 'none',
                                 }}
                             >
                                 <div

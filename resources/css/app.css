@@ -627,3 +627,62 @@ ul, ol {
     background-color: var(--color-primary-fixed);
     color: var(--color-on-primary-fixed);
 }
+
+/* --------------------------------------------------------------------------
+   Accessibility: High-Contrast Mode (Dengar & Baca)
+   Activated via <html data-contrast="high"> by AccessibilityProvider.
+   -------------------------------------------------------------------------- */
+:root[data-contrast="high"] {
+    --color-surface: #ffffff;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #ffffff;
+    --color-surface-container: #f0f0f0;
+    --color-surface-container-high: #e0e0e0;
+    --color-surface-container-highest: #d0d0d0;
+    --color-on-surface: #000000;
+    --color-on-surface-variant: #000000;
+    --color-outline: #000000;
+    --color-outline-variant: #000000;
+    --color-primary: #004f51;
+    --color-on-primary: #ffffff;
+}
+
+:root[data-contrast="high"] body {
+    background-color: #ffffff;
+}
+
+:root[data-contrast="high"] .card,
+:root[data-contrast="high"] .input {
+    border: 2px solid #000000;
+}
+
+:root[data-contrast="high"] a,
+:root[data-contrast="high"] .btn {
+    text-decoration-thickness: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Flash Toast
+   -------------------------------------------------------------------------- */
+.toast {
+    position: fixed;
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    z-index: 100;
+    padding: var(--space-base) var(--space-lg);
+    border-radius: var(--rounded);
+    box-shadow: var(--shadow-lg);
+    font-size: 14px;
+    font-weight: 600;
+    max-width: 380px;
+    animation: slideUp var(--transition-base) ease-out;
+}
+
+.toast-success { background-color: var(--color-primary); color: var(--color-on-primary); }
+.toast-error { background-color: var(--color-error); color: var(--color-on-error); }
+
+/* Profanity warning highlight for inputs */
+.input-warning {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 3px rgba(186, 26, 26, 0.12);
+}
