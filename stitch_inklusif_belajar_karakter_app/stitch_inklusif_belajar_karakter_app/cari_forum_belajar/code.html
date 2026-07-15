@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modul Belajar Bareng - Search Forum</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#7dd5d7",
+                      "on-error-container": "#93000a",
+                      "on-primary-container": "#004647",
+                      "error-container": "#ffdad6",
+                      "outline": "#6e7979",
+                      "error": "#ba1a1a",
+                      "on-background": "#1a1c1e",
+                      "secondary-container": "#fea360",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-container": "#064647",
+                      "tertiary-fixed": "#b6eced",
+                      "on-secondary-fixed": "#301400",
+                      "on-surface": "#1a1c1e",
+                      "primary": "#00696b",
+                      "primary-fixed": "#9af1f3",
+                      "primary-fixed-dim": "#7dd5d7",
+                      "surface-container-low": "#f3f3f6",
+                      "tertiary-fixed-dim": "#9ad0d1",
+                      "on-secondary-fixed-variant": "#713700",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#3e4949",
+                      "secondary-fixed-dim": "#ffb784",
+                      "surface-bright": "#f9f9fc",
+                      "surface-container": "#eeeef0",
+                      "primary-container": "#5fb7b9",
+                      "outline-variant": "#bdc9c8",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#002021",
+                      "surface": "#f9f9fc",
+                      "tertiary": "#316768",
+                      "on-tertiary-fixed-variant": "#144e50",
+                      "on-secondary-container": "#753900",
+                      "secondary": "#924c0d",
+                      "secondary-fixed": "#ffdcc6",
+                      "tertiary-container": "#7eb3b4",
+                      "surface-container-high": "#e8e8ea",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed-variant": "#004f51",
+                      "inverse-surface": "#2f3133",
+                      "on-primary-fixed": "#002021",
+                      "surface-variant": "#e2e2e5",
+                      "surface-container-highest": "#e2e2e5",
+                      "inverse-on-surface": "#f0f0f3",
+                      "surface-tint": "#00696b",
+                      "background": "#f9f9fc",
+                      "surface-dim": "#dadadc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "base": "8px",
+                      "xl": "32px",
+                      "xs": "4px",
+                      "lg": "24px",
+                      "md": "16px",
+                      "container-margin": "20px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-xl": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "22px",
+                              {
+                                      "lineHeight": "30px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-sans antialiased min-h-screen pb-24 md:pb-0 pt-16 md:pt-0">
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-soft justify-between items-center px-container-margin py-base h-16">
+<div class="flex items-center gap-md">
+<span class="font-headline-xl text-headline-xl font-bold text-primary dark:text-primary-fixed-dim">BINA</span>
+</div>
+<nav class="flex gap-lg">
+<a class="text-on-surface-variant hover:bg-primary-container/20 px-4 py-2 rounded-lg transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="text-primary font-bold bg-primary-container/10 px-4 py-2 rounded-lg flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-label-md text-label-md">Forum</span>
+</a>
+<a class="text-on-surface-variant hover:bg-primary-container/20 px-4 py-2 rounded-lg transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="edit_square">edit_square</span>
+<span class="font-label-md text-label-md">Karya-Ku</span>
+</a>
+<a class="text-on-surface-variant hover:bg-primary-container/20 px-4 py-2 rounded-lg transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="swords">swords</span>
+<span class="font-label-md text-label-md">Battle</span>
+</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-primary">accessibility</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A clean, modern avatar of a diverse student character, flat illustration style, primary teal and warm orange accents, solid background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB35OMl40b7QZDIzg_dlAC6sqdym9QHUZiKvrmfmiAmhzBwgOzYKfb0Tu83y8uPu-bq3aTuI0GmNMR-9nJupM6l6wBlOvwNSCANeMEMm74g5IzYEtrOlqm1qnMPC_FbsG48lKzqFKLfx-3CPZ8qxJBZd3xnmqIFeXglRy89cQcHadueva4L_Wb00f9e1DCzrgbj0_LZ4bPsHEi0tTpWLbycL2zI_KL1bcHO4FtAQhHlwdPCQqMIIeFfmw"/>
+</div>
+</div>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-soft flex justify-between items-center px-container-margin py-base h-16">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A clean, modern avatar of a diverse student character, flat illustration style, primary teal and warm orange accents, solid background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTh3e5jIDdlTJVLvS50r2vSTpPYfLj9CRrengHZ9jB7c738vrZdz_faiqXbYzFrcT7SRJkxt_gIBkZUXu72o4u7QEwc5thGiu6NZ7dwiyG4E0uQ0JSDs6HUR1WnynM_RSWpM72EnAtTrAYWnPwuVsiZDDB7zQczSMUEsB7_WgUP0n2zwzZoJtb09D352wIxJFJfdF7oieXVdbGpiTpboJRJjPYGxSgkBC5w7JRv9IFU4JZlf_Zpe_v4A"/>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim">BINA</span>
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-surface-variant transition-colors text-primary">
+<span class="material-symbols-outlined">accessibility</span>
+</button>
+</header>
+<main class="max-w-7xl mx-auto px-container-margin md:mt-24 mt-6">
+<!-- Search Section -->
+<section class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-md">Find a Study Forum</h1>
+<div class="relative w-full max-w-2xl">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant text-xl">search</span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface rounded-2xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 font-body-md text-body-md outline-none transition-all shadow-sm" placeholder="Search math, science, english..." type="text"/>
+</div>
+</section>
+<!-- Categories Chips -->
+<section class="mb-xl">
+<div class="flex gap-sm overflow-x-auto hide-scrollbar pb-2">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap shadow-soft shrink-0">All Topics</button>
+<button class="px-5 py-2 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-colors shrink-0">Mathematics</button>
+<button class="px-5 py-2 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-colors shrink-0">Science</button>
+<button class="px-5 py-2 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-colors shrink-0">English</button>
+<button class="px-5 py-2 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-colors shrink-0">History</button>
+<button class="px-5 py-2 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-colors shrink-0">Art &amp; Design</button>
+</div>
+</section>
+<!-- Active Forums List -->
+<section>
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Forums</h2>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1">
+                    Filter <span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Forum Card 1 -->
+<div class="bg-surface-container-low rounded-3xl p-md shadow-soft border border-surface-variant flex flex-col hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="flex justify-between items-start mb-sm">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-label-sm text-label-sm inline-block">Mathematics</span>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm bg-surface rounded-full px-2 py-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">group</span> 124
+                        </div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2">Algebra II: Quadratic Equations Q&amp;A</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2 flex-grow">Struggling with the quadratic formula? Join us to discuss problem sets and share tips.</p>
+<div class="flex items-center gap-3 pt-3 border-t border-surface-variant mt-auto">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Mr. Budi</span>
+<span class="font-label-sm text-label-sm text-primary">Moderator / Teacher</span>
+</div>
+</div>
+</div>
+<!-- Forum Card 2 -->
+<div class="bg-surface-container-low rounded-3xl p-md shadow-soft border border-surface-variant flex flex-col hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="flex justify-between items-start mb-sm">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full font-label-sm text-label-sm inline-block">Science</span>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm bg-surface rounded-full px-2 py-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">group</span> 89
+                        </div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2">Biology: Cell Structures Discussion</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2 flex-grow">Preparing for the midterm. Let's review mitochondria, chloroplasts, and cell walls together.</p>
+<div class="flex items-center gap-3 pt-3 border-t border-surface-variant mt-auto">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-secondary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-sm">person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Siti A.</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Student Leader</span>
+</div>
+</div>
+</div>
+<!-- Forum Card 3 -->
+<div class="bg-surface-container-low rounded-3xl p-md shadow-soft border border-surface-variant flex flex-col hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="flex justify-between items-start mb-sm">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full font-label-sm text-label-sm inline-block">English</span>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm bg-surface rounded-full px-2 py-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">group</span> 210
+                        </div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2">Essay Writing Workshop &amp; Peer Review</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2 flex-grow">Post your drafts here for constructive feedback on thesis statements and flow.</p>
+<div class="flex items-center gap-3 pt-3 border-t border-surface-variant mt-auto">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Mrs. Johnson</span>
+<span class="font-label-sm text-label-sm text-primary">Moderator / Teacher</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe pt-xs bg-surface dark:bg-surface-dim shadow-soft rounded-t-xl h-20 border-t border-surface-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-md py-xs active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="forum">forum</span>
+<span class="font-label-sm text-label-sm font-bold">Forum</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="edit_square">edit_square</span>
+<span class="font-label-sm text-label-sm">Karya-Ku</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="swords">swords</span>
+<span class="font-label-sm text-label-sm">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guru Dashboard - BINA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#7dd5d7",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#004647",
+                        "error-container": "#ffdad6",
+                        "outline": "#6e7979",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1c1e",
+                        "secondary-container": "#fea360",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#064647",
+                        "tertiary-fixed": "#b6eced",
+                        "on-secondary-fixed": "#301400",
+                        "on-surface": "#1a1c1e",
+                        "primary": "#00696b",
+                        "primary-fixed": "#9af1f3",
+                        "primary-fixed-dim": "#7dd5d7",
+                        "surface-container-low": "#f3f3f6",
+                        "tertiary-fixed-dim": "#9ad0d1",
+                        "on-secondary-fixed-variant": "#713700",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3e4949",
+                        "secondary-fixed-dim": "#ffb784",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "primary-container": "#5fb7b9",
+                        "outline-variant": "#bdc9c8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#002021",
+                        "surface": "#f9f9fc",
+                        "tertiary": "#316768",
+                        "on-tertiary-fixed-variant": "#144e50",
+                        "on-secondary-container": "#753900",
+                        "secondary": "#924c0d",
+                        "secondary-fixed": "#ffdcc6",
+                        "tertiary-container": "#7eb3b4",
+                        "surface-container-high": "#e8e8ea",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004f51",
+                        "inverse-surface": "#2f3133",
+                        "on-primary-fixed": "#002021",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container-highest": "#e2e2e5",
+                        "inverse-on-surface": "#f0f0f3",
+                        "surface-tint": "#00696b",
+                        "background": "#f9f9fc",
+                        "surface-dim": "#dadadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "container-margin": "20px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["22px", { "lineHeight": "30px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .shadow-soft { box-shadow: 0px 4px 20px rgba(95, 183, 185, 0.08); }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col pt-[72px] pb-[88px] md:pb-0 md:pt-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-soft transition-all duration-300 md:hidden flex justify-between items-center px-container-margin py-base h-[72px]">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container shrink-0">
+<img alt="Teacher Avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a professional teacher smiling warmly in a bright, modern classroom setting. The lighting is soft and natural, emphasizing approachability and competence. The color palette features soft teals and warm neutral tones, aligning with a modern educational corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn1CxXNqFb1E1HbMcEi3VBIlzDY319WwFy4bHcCaEUbu-aYBKwkGFvy1LQTyJNtGUTclINiLNku8ETe9ZBqw8mMooYFJk7rCCuJLID31baH5_mcwEmuNYOpruz1yMh6QzfPF3YQ72LawhJfXvLYLahpNTF7X3ZITHcu2a82XVIED0uSg1y3n3B7b2UYI28PTdZiDCzh-9SeFXvOpRJ7s1ukag46tN2NBAOG8yUlCMySFbpvuA_B360bw"/>
+</div>
+<h1 class="font-headline-xl text-headline-xl font-bold text-primary dark:text-primary-fixed-dim">BINA</h1>
+</div>
+<button class="flex items-center justify-center p-sm rounded-full text-on-surface-variant hover:bg-primary-container/20 dark:hover:bg-primary-fixed/10 transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[24px]">accessibility</span>
+</button>
+</header>
+<!-- Desktop Sidebar (Hidden on Mobile) -->
+<nav class="hidden md:flex fixed top-0 left-0 h-screen w-[280px] bg-surface shadow-soft z-50 flex-col py-lg px-container-margin">
+<div class="flex items-center gap-md mb-xl px-sm">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container shrink-0">
+<img alt="Teacher Avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a professional teacher smiling warmly in a bright, modern classroom setting. The lighting is soft and natural, emphasizing approachability and competence. The color palette features soft teals and warm neutral tones, aligning with a modern educational corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6UcEZaHwXZY9DBdHoDoEhCqCGaEzSkaP4vrRCJMxqTYVTTOmyy5uhY9BU_8FK9Dwe7OnpwN8CPJjd_8ZPPm0XRXm3DaKBLtjeor2xePByQMSK0XyQI80DdOwlWz43xbWxgev18xwAayDgJLPdM9JHBc4EnbHJYRQvm0OZPFzSH9dD3ZS39ze61MBs0ob1hLH0EhdQhEl8Up3Flt2wO5blgedsmlRv076PrNF912gP6QKz3B9shuztGg"/>
+</div>
+<div>
+<h1 class="font-headline-xl text-headline-xl font-bold text-primary">BINA</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Admin Dashboard</p>
+</div>
+</div>
+<div class="flex flex-col gap-sm flex-1">
+<a class="flex items-center gap-md px-md py-sm rounded-2xl bg-secondary-container text-on-secondary-container transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md font-bold">Home</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-2xl text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">forum</span>
+<span class="font-label-md text-label-md font-medium group-hover:text-primary transition-colors">Forum</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-2xl text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">edit_square</span>
+<span class="font-label-md text-label-md font-medium group-hover:text-primary transition-colors">Karya-Ku</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-2xl text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">swords</span>
+<span class="font-label-md text-label-md font-medium group-hover:text-primary transition-colors">Battle</span>
+</a>
+</div>
+<a class="flex items-center gap-md px-md py-sm rounded-2xl text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 group mt-auto" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">person</span>
+<span class="font-label-md text-label-md font-medium group-hover:text-primary transition-colors">Profile</span>
+</a>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-[1440px] mx-auto md:ml-[280px] px-container-margin py-lg md:py-xl flex flex-col gap-xl">
+<!-- Header Section -->
+<section class="flex flex-col gap-sm">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Good morning, Guru Sarah</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Here is your daily overview of student progress and pending actions.</p>
+</section>
+<!-- Quick Stats Bento Grid -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Stat Card 1 -->
+<div class="bg-surface rounded-3xl p-md shadow-soft flex flex-col gap-sm border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-background">142</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Active Students</p>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface rounded-3xl p-md shadow-soft flex flex-col gap-sm border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pending_actions</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-background">28</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pending Journals</p>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface rounded-3xl p-md shadow-soft flex flex-col gap-sm border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-background">+15%</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Avg Score Trend</p>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface rounded-3xl p-md shadow-soft flex flex-col gap-sm border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-background">3</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">At-Risk Students</p>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Left Column: Pending Actions (Wider on Desktop) -->
+<section class="lg:col-span-2 flex flex-col gap-md">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-background">Action Journals to Validate</h3>
+<button class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors">View All</button>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- Journal Item 1 -->
+<div class="bg-surface rounded-3xl p-md shadow-soft flex flex-col sm:flex-row gap-md items-start sm:items-center border border-outline-variant/30 hover:border-primary-container/50 transition-colors">
+<div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-outline-variant/30">
+<img alt="Student Avatar" class="w-full h-full object-cover" data-alt="A small, clear portrait of a primary school student looking engaged, set against a bright, modern educational background. The tones are optimistic and align with a clean corporate UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCoZD421x1QlOQ6eVGMEUo5-P960VT2fj73itdu-u3sfpmxy7wGyk0NFDltWEWXwBqpKtUSTu2v-dpKJdewFw2MfDAuizxbOgCaMrCal1Pwg0Ad48YjReERz3TTKGs4avbDXoGkxP7LT6SlAmgQH4lDtIwo_UgP8SmfnFxJpSn9b5ZZj4gt2NNs0z4FqVvJanOT_8Bnb0GAEbKBVdJp5WQ9HarrbkKa-OPUwvC5TtUPET78SULcUdbOw"/>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-background font-semibold">Budi Santoso</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-xs">"Helped a friend understand the math problem today during recess."</p>
+<div class="flex gap-xs mt-sm">
+<span class="px-sm py-xs bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full font-label-sm text-label-sm">Empathy</span>
+<span class="px-sm py-xs bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-label-sm">Math Class</span>
+</div>
+</div>
+<div class="flex gap-sm w-full sm:w-auto mt-sm sm:mt-0">
+<button class="flex-1 sm:flex-none px-md py-sm rounded-full border border-outline text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md">Reject</button>
+<button class="flex-1 sm:flex-none px-md py-sm rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors font-label-md text-label-md">Approve</button>
+</div>
+</div>
+<!-- Journal Item 2 -->
+<div class="bg-surface rounded-3xl p-md shadow-soft flex flex-col sm:flex-row gap-md items-start sm:items-center border border-outline-variant/30 hover:border-primary-container/50 transition-colors">
+<div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-outline-variant/30 bg-secondary-container flex items-center justify-center text-on-secondary-container font-headline-md">
+                            A
+                        </div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-background font-semibold">Ani Wijaya</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-xs">"Cleaned up the reading corner without being asked after the activity."</p>
+<div class="flex gap-xs mt-sm">
+<span class="px-sm py-xs bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full font-label-sm text-label-sm">Responsibility</span>
+</div>
+</div>
+<div class="flex gap-sm w-full sm:w-auto mt-sm sm:mt-0">
+<button class="flex-1 sm:flex-none px-md py-sm rounded-full border border-outline text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md">Reject</button>
+<button class="flex-1 sm:flex-none px-md py-sm rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors font-label-md text-label-md">Approve</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column: Character Trends -->
+<section class="flex flex-col gap-md">
+<h3 class="font-headline-md text-headline-md text-on-background">Class Character Trends</h3>
+<div class="bg-tertiary text-on-tertiary rounded-3xl p-lg shadow-soft flex flex-col gap-md">
+<p class="font-body-md text-body-md opacity-90">Overall performance for Class 5A this month.</p>
+<div class="flex flex-col gap-sm mt-sm">
+<!-- Progress 1 -->
+<div>
+<div class="flex justify-between mb-xs">
+<span class="font-label-sm text-label-sm">Leadership</span>
+<span class="font-label-sm text-label-sm">85%</span>
+</div>
+<div class="h-2 w-full bg-on-tertiary/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<!-- Progress 2 -->
+<div>
+<div class="flex justify-between mb-xs">
+<span class="font-label-sm text-label-sm">Teamwork</span>
+<span class="font-label-sm text-label-sm">72%</span>
+</div>
+<div class="h-2 w-full bg-on-tertiary/20 rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<!-- Progress 3 -->
+<div>
+<div class="flex justify-between mb-xs">
+<span class="font-label-sm text-label-sm">Creativity</span>
+<span class="font-label-sm text-label-sm">90%</span>
+</div>
+<div class="h-2 w-full bg-on-tertiary/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed rounded-full" style="width: 90%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- At Risk Alert -->
+<div class="bg-error-container rounded-3xl p-md flex items-start gap-md mt-sm">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">info</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-error-container font-semibold">Attention Needed</h4>
+<p class="font-body-md text-body-md text-on-error-container/80 mt-xs text-sm">3 students have shown a drop in participation scores this week. Review their recent activities.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe pt-xs bg-surface dark:bg-surface-dim shadow-soft rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-md py-xs active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-sm text-label-sm mt-[2px]">Forum</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">edit_square</span>
+<span class="font-label-sm text-label-sm mt-[2px]">Karya-Ku</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">swords</span>
+<span class="font-label-sm text-label-sm mt-[2px]">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-[2px]">Profile</span>
+</a>
+</nav>
+</body></html>

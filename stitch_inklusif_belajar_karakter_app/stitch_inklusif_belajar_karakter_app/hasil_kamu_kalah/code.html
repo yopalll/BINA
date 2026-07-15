@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Battle Result - Keep Trying!</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#7dd5d7",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#004647",
+                        "error-container": "#ffdad6",
+                        "outline": "#6e7979",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1c1e",
+                        "secondary-container": "#fea360",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#064647",
+                        "tertiary-fixed": "#b6eced",
+                        "on-secondary-fixed": "#301400",
+                        "on-surface": "#1a1c1e",
+                        "primary": "#00696b",
+                        "primary-fixed": "#9af1f3",
+                        "primary-fixed-dim": "#7dd5d7",
+                        "surface-container-low": "#f3f3f6",
+                        "tertiary-fixed-dim": "#9ad0d1",
+                        "on-secondary-fixed-variant": "#713700",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3e4949",
+                        "secondary-fixed-dim": "#ffb784",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "primary-container": "#5fb7b9",
+                        "outline-variant": "#bdc9c8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#002021",
+                        "surface": "#f9f9fc",
+                        "tertiary": "#316768",
+                        "on-tertiary-fixed-variant": "#144e50",
+                        "on-secondary-container": "#753900",
+                        "secondary": "#924c0d",
+                        "secondary-fixed": "#ffdcc6",
+                        "tertiary-container": "#7eb3b4",
+                        "surface-container-high": "#e8e8ea",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004f51",
+                        "inverse-surface": "#2f3133",
+                        "on-primary-fixed": "#002021",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container-highest": "#e2e2e5",
+                        "inverse-on-surface": "#f0f0f3",
+                        "surface-tint": "#00696b",
+                        "background": "#f9f9fc",
+                        "surface-dim": "#dadadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "container-margin": "20px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["22px", { "lineHeight": "30px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .pulse-bg {
+            animation: pulse-warm 3s infinite alternate;
+        }
+        @keyframes pulse-warm {
+            0% { background-color: #ffdcc6; }
+            100% { background-color: #ffdad6; }
+        }
+        .slide-up {
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col items-center justify-center pulse-bg">
+<!-- Main Content Canvas (Transactional - Navigation Shell Suppressed) -->
+<main class="w-full max-w-md mx-auto p-container-margin flex flex-col items-center justify-center min-h-screen slide-up">
+<!-- Illustration / Graphic -->
+<div class="mb-lg rounded-3xl overflow-hidden shadow-soft w-48 h-48 flex-shrink-0 bg-surface">
+<img class="w-full h-full object-cover" data-alt="A stylized, modern 3D illustration of a friendly cartoon character or avatar looking determined but slightly tired after a challenge, set against a warm orange gradient background. The style is soft minimalism with bubbly geometry, fitting an educational app's encouraging aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtSu1r8X4LrbNdzf6BN2zNAXJN0PUN9Ds9Lsn6kMyhiA2nJRHnIMuvZo4km5EOd43wmruuYp7LbPGjtbzdFctuN-sivMBDo7GSakCIje2MiAHMYvmlr-nAfdwuSoTMG7-U0n7pMB3YfyJj0ySk40T1DuRAYBqzwNAPjBo5nFoHYrzc17Q1NTqkbuYCpKfawwyI97AwS0kpups4bsI5iIsJfaLa-mO0JBHcMcEjThrBYjGlt45qd7WQXA"/>
+</div>
+<!-- Headline & Encouragement -->
+<div class="text-center mb-xl">
+<h1 class="font-headline-xl text-headline-xl text-secondary mb-sm">Keep Trying!</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto">
+                Every battle is a step forward. You're getting closer to mastering this!
+            </p>
+</div>
+<!-- Participation Points Card (Glassmorphism/Soft Card) -->
+<div class="bg-surface/80 backdrop-blur-md rounded-3xl p-lg w-full mb-xl shadow-soft border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="bg-secondary-container w-12 h-12 rounded-full flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Participation</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Effort rewarded</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-xl text-headline-xl text-secondary">+15</span>
+<span class="font-label-md text-label-md text-on-surface-variant block">XP</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="w-full flex flex-col gap-md mt-auto mb-lg">
+<button class="w-full bg-secondary text-on-secondary rounded-full py-md font-label-md text-label-md shadow-soft hover:bg-secondary/90 transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">menu_book</span>
+                Review Answer
+            </button>
+<button class="w-full bg-transparent border-2 border-secondary text-secondary rounded-full py-md font-label-md text-label-md hover:bg-secondary-container/20 transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">refresh</span>
+                Rematch Next Round
+            </button>
+<a class="w-full text-center py-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors mt-sm" href="#">
+                Back to Dashboard
+            </a>
+</div>
+</main>
+</body></html>

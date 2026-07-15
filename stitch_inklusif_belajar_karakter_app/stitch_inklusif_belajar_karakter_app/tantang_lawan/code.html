@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Battle HOTS - Challenging Opponent</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#7dd5d7",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#004647",
+                        "error-container": "#ffdad6",
+                        "outline": "#6e7979",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1c1e",
+                        "secondary-container": "#fea360",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#064647",
+                        "tertiary-fixed": "#b6eced",
+                        "on-secondary-fixed": "#301400",
+                        "on-surface": "#1a1c1e",
+                        "primary": "#00696b",
+                        "primary-fixed": "#9af1f3",
+                        "primary-fixed-dim": "#7dd5d7",
+                        "surface-container-low": "#f3f3f6",
+                        "tertiary-fixed-dim": "#9ad0d1",
+                        "on-secondary-fixed-variant": "#713700",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3e4949",
+                        "secondary-fixed-dim": "#ffb784",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "primary-container": "#5fb7b9",
+                        "outline-variant": "#bdc9c8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#002021",
+                        "surface": "#f9f9fc",
+                        "tertiary": "#316768",
+                        "on-tertiary-fixed-variant": "#144e50",
+                        "on-secondary-container": "#753900",
+                        "secondary": "#924c0d",
+                        "secondary-fixed": "#ffdcc6",
+                        "tertiary-container": "#7eb3b4",
+                        "surface-container-high": "#e8e8ea",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004f51",
+                        "inverse-surface": "#2f3133",
+                        "on-primary-fixed": "#002021",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container-highest": "#e2e2e5",
+                        "inverse-on-surface": "#f0f0f3",
+                        "surface-tint": "#00696b",
+                        "background": "#f9f9fc",
+                        "surface-dim": "#dadadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "container-margin": "20px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["22px", { "lineHeight": "30px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        .shadow-soft {
+            box-shadow: 0px 4px 20px rgba(95, 183, 185, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col pt-[72px] pb-[90px] md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-soft">
+<div class="flex justify-between items-center px-container-margin py-base w-full">
+<div class="flex items-center gap-md">
+<button aria-label="Back" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-primary-container/20 dark:hover:bg-primary-fixed/10 transition-colors scale-95 active:scale-90">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">arrow_back</span>
+</button>
+</div>
+<h1 class="font-headline-xl text-headline-xl font-bold text-primary dark:text-primary-fixed-dim">BINA</h1>
+<div class="flex items-center">
+<button class="px-md py-sm rounded-full text-primary dark:text-primary-fixed-dim hover:bg-primary-container/20 dark:hover:bg-primary-fixed/10 transition-colors scale-95 active:scale-90 font-label-md text-label-md">
+                    Accessibility
+                </button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow container mx-auto px-container-margin py-lg md:max-w-2xl">
+<!-- Opponent Profile Header -->
+<section class="flex flex-col items-center mb-xl">
+<div class="relative w-32 h-32 mb-md">
+<img alt="Opponent Avatar" class="w-full h-full rounded-full object-cover border-4 border-surface shadow-soft" data-alt="A stylized, high-quality avatar of a confident student opponent in a modern educational game. The character is young, energetic, and wearing a sleek, futuristic school uniform with bright teal and orange accents. The lighting is soft and flattering, emphasizing a friendly but competitive spirit. The background is a clean, abstract geometric pattern in light, airy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaYVuv8QYwvUAP9ZxJZ_Y91FoR-f1f7Mj3BSXo2_cy4u0rNKHwBA0BdQFI9ASsBAKwOyznLE0FVi4IIniuka6AhURyUrrMlJuTt9xzcZ4RuvQHPqBdEk4xs0B2Yg7M8-1c1RJUmgySsBS0aR_LmevYh_iFemLIzHOMXJaLOvQe9cIonukVNDzlXfWMefY6lzUbGlWQHmtDD-2JpxLFaQLx3mgjCbbmUSPPdBpUHNn9NUqmFEAX224j9g"/>
+<div class="absolute bottom-0 right-0 bg-secondary-container text-on-secondary-container rounded-full w-10 h-10 flex items-center justify-center font-headline-md text-headline-md border-2 border-surface" title="Level">
+                    42
+                </div>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-center text-primary mb-xs">Ahmad Fauzi</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">school</span> SMAN 1 Nusantara
+            </p>
+</section>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-2 gap-md mb-xl">
+<!-- Points -->
+<div class="bg-surface-container-low rounded-3xl p-md flex flex-col items-center justify-center shadow-soft">
+<span class="material-symbols-outlined fill text-secondary-container mb-xs" style="font-size: 32px;">star</span>
+<span class="font-headline-md text-headline-md text-on-surface">15,420</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Character Points</span>
+</div>
+<!-- Win Rate -->
+<div class="bg-surface-container-low rounded-3xl p-md flex flex-col items-center justify-center shadow-soft">
+<span class="material-symbols-outlined fill text-tertiary-container mb-xs" style="font-size: 32px;">military_tech</span>
+<span class="font-headline-md text-headline-md text-on-surface">68%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Win Rate</span>
+</div>
+</section>
+<!-- Badges Section -->
+<section class="mb-xl">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-md uppercase tracking-widest">Recent Badges</h3>
+<div class="flex gap-md overflow-x-auto pb-sm snap-x">
+<!-- Badge 1 -->
+<div class="flex flex-col items-center gap-xs min-w-[80px] snap-center">
+<div class="w-16 h-16 rounded-2xl bg-tertiary-fixed flex items-center justify-center shadow-soft">
+<span class="material-symbols-outlined fill text-on-tertiary-container" style="font-size: 32px;">local_fire_department</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface">Hot Streak</span>
+</div>
+<!-- Badge 2 -->
+<div class="flex flex-col items-center gap-xs min-w-[80px] snap-center">
+<div class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center shadow-soft">
+<span class="material-symbols-outlined fill text-on-primary-fixed" style="font-size: 32px;">psychology</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface">Math Whiz</span>
+</div>
+<!-- Badge 3 -->
+<div class="flex flex-col items-center gap-xs min-w-[80px] snap-center">
+<div class="w-16 h-16 rounded-2xl bg-secondary-fixed flex items-center justify-center shadow-soft">
+<span class="material-symbols-outlined fill text-on-secondary-fixed" style="font-size: 32px;">speed</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface">Fast Thinker</span>
+</div>
+</div>
+</section>
+<!-- Action Button -->
+<div class="mt-auto md:mt-xl">
+<button class="w-full py-md rounded-full bg-primary text-on-primary font-headline-md text-headline-md hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-95 shadow-soft flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">swords</span>
+                Tantang (Challenge)
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe pt-xs bg-surface dark:bg-surface-dim shadow-soft rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-xs">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-xs">forum</span>
+<span class="font-label-sm text-label-sm">Forum</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-xs">edit_square</span>
+<span class="font-label-sm text-label-sm">Karya-Ku</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-xs fill">swords</span>
+<span class="font-label-sm text-label-sm">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-xs">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

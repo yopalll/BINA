@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Battle HOTS - Match Found</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#7dd5d7",
+                      "on-error-container": "#93000a",
+                      "on-primary-container": "#004647",
+                      "error-container": "#ffdad6",
+                      "outline": "#6e7979",
+                      "error": "#ba1a1a",
+                      "on-background": "#1a1c1e",
+                      "secondary-container": "#fea360",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-container": "#064647",
+                      "tertiary-fixed": "#b6eced",
+                      "on-secondary-fixed": "#301400",
+                      "on-surface": "#1a1c1e",
+                      "primary": "#00696b",
+                      "primary-fixed": "#9af1f3",
+                      "primary-fixed-dim": "#7dd5d7",
+                      "surface-container-low": "#f3f3f6",
+                      "tertiary-fixed-dim": "#9ad0d1",
+                      "on-secondary-fixed-variant": "#713700",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#3e4949",
+                      "secondary-fixed-dim": "#ffb784",
+                      "surface-bright": "#f9f9fc",
+                      "surface-container": "#eeeef0",
+                      "primary-container": "#5fb7b9",
+                      "outline-variant": "#bdc9c8",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#002021",
+                      "surface": "#f9f9fc",
+                      "tertiary": "#316768",
+                      "on-tertiary-fixed-variant": "#144e50",
+                      "on-secondary-container": "#753900",
+                      "secondary": "#924c0d",
+                      "secondary-fixed": "#ffdcc6",
+                      "tertiary-container": "#7eb3b4",
+                      "surface-container-high": "#e8e8ea",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed-variant": "#004f51",
+                      "inverse-surface": "#2f3133",
+                      "on-primary-fixed": "#002021",
+                      "surface-variant": "#e2e2e5",
+                      "surface-container-highest": "#e2e2e5",
+                      "inverse-on-surface": "#f0f0f3",
+                      "surface-tint": "#00696b",
+                      "background": "#f9f9fc",
+                      "surface-dim": "#dadadc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "base": "8px",
+                      "xl": "32px",
+                      "xs": "4px",
+                      "lg": "24px",
+                      "md": "16px",
+                      "container-margin": "20px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-xl": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "22px",
+                              {
+                                      "lineHeight": "30px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(95, 183, 185, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(95, 183, 185, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(95, 183, 185, 0); }
+        }
+        .vs-text {
+            background: linear-gradient(135deg, #00696b 0%, #fea360 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        body {
+            /* Background pattern to make it engaging */
+            background-image: radial-gradient(#9af1f3 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-color: #f9f9fc;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md items-center justify-center relative overflow-hidden">
+<!-- Top App Bar (Semantic Shell - Visible on Mobile for Context) -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-soft flex justify-between items-center px-container-margin py-base md:hidden">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A small circular avatar portrait of a student, bright lighting, high-end educational app aesthetic, corporate modern style, soft minimalistic background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0YbuRxNJTzDaJVBnv75u2023juJEODhJ1rg5Iz8X2oI4u6T0Q9zzgmTvhqRdyeNWTB10tofeJV0mSQMxBFHk5gCo0T_rN7R36VooCnw--mdyUddGzi_IHkR4SaRzWXZcUPGc4-yfXZC8wlWKeqdInHnmIl7iibvpoSDJ0qFQCun8xqZKyhCHse2zWsjqVCTO8hMBwC4Csp8knlzFrsXZvl-Qb6PUtCTF6nHvCwsA5AZfblMk5U3gC3w"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">BINA</h1>
+</div>
+<button class="text-on-surface-variant hover:bg-primary-container/20 transition-colors p-sm rounded-full scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">accessibility</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md mx-auto px-container-margin py-xl flex flex-col items-center justify-center flex-grow mt-16 md:mt-0 z-10 relative">
+<!-- Animated Background Blur -->
+<div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-50">
+<div class="w-64 h-64 bg-primary-container rounded-full blur-[80px] animate-pulse"></div>
+<div class="w-64 h-64 bg-secondary-container rounded-full blur-[80px] -ml-20 mt-20 animate-pulse" style="animation-delay: 1s;"></div>
+</div>
+<div class="z-10 w-full flex flex-col items-center text-center space-y-xl">
+<div class="space-y-sm">
+<h2 class="font-headline-xl text-headline-xl text-primary animate-bounce">Match Found!</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Get ready for your HOTS Battle</p>
+</div>
+<!-- VS Avatars Area -->
+<div class="flex items-center justify-center gap-lg w-full relative">
+<!-- Player Avatar -->
+<div class="flex flex-col items-center space-y-sm">
+<div class="w-24 h-24 rounded-full overflow-hidden border-4 border-primary shadow-soft pulse-animation">
+<img class="w-full h-full object-cover" data-alt="A portrait avatar of the current user, a confident student in a well-lit modern educational setting. Soft minimalistic background, high-resolution corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIpcZFyVZcTdpQQXWZKQFDmT6AL2zMFDUVx_h_BZW55sygz5bGxaxAKvt-MartY2LH0kPS9pRn4p3MwxC7ls48eAUzJ51FKU1w55tZFzosuiYbTemxMxvh_qdOIZtfVIZfIJ7JcmBjYEQjPrfPZo5U80Kx4o5CskuUP4uig6Rib4tCrAas_-S5rCRz5efxG-br6zfmIgOChfouzxCHm-YbXFCIeh0-4oRN5YLgM6_rDC1RWyi4eq5lWw"/>
+</div>
+<span class="font-label-md text-label-md text-primary">You</span>
+</div>
+<!-- VS Badge -->
+<div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[80%] z-20">
+<div class="bg-surface rounded-full p-sm shadow-soft flex items-center justify-center w-12 h-12 border border-surface-variant">
+<span class="font-headline-md text-headline-md font-bold vs-text italic">VS</span>
+</div>
+</div>
+<!-- Opponent Avatar -->
+<div class="flex flex-col items-center space-y-sm">
+<div class="w-24 h-24 rounded-full overflow-hidden border-4 border-secondary shadow-soft">
+<img class="w-full h-full object-cover" data-alt="A portrait avatar of the matched opponent, a focused student looking ready for a challenge. Clean light-mode aesthetic, corporate modern style, vibrant engaging colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgt7x1qDuPDzGpOPykiBB75AzHmBW9dso6FIzL_FNEG8_d0O-h9axVS1RBfcoVzsxYLn_7DFcGB07Aefyqgz34hR-Om43o8kFUUV_eN5azJhasKTsscSikgG2kL3HyQrZdc1kfhs_z7Y-1pHpdTDlQlmkTHS1sy5D3sW1_ROWTZ3groBz63dsu7SGOxLUWYVYS66LbmQJKQjQDAk7Z1WWQ8FCiWaorhjxm3ATmkJMkSnTjy3ziG326Lg"/>
+</div>
+<span class="font-label-md text-label-md text-secondary">Rizky</span>
+</div>
+</div>
+<!-- Topic Card -->
+<div class="w-full bg-surface-container-lowest rounded-3xl p-lg shadow-soft border border-surface-variant flex flex-col items-center text-center space-y-md mt-lg">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-md py-xs rounded-full">Scenario Topic</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Berita Palsu di Media Sosial</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Analyze the situation, identify logical fallacies, and propose a solution.</p>
+<div class="flex items-center gap-sm mt-sm text-secondary">
+<span class="material-symbols-outlined">timer</span>
+<span class="font-label-md text-label-md">Starts in <span class="font-bold" id="countdown">5</span>s</span>
+</div>
+</div>
+<!-- Ready Button (Optional interaction) -->
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-full shadow-soft hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-95">
+                I'm Ready!
+            </button>
+</div>
+</main>
+<!-- Bottom Nav Bar (Semantic Shell - Visible on Mobile) -->
+<!-- Note: In a real 'Match Found' screen, this might be suppressed to maintain focus, but including based on rules if it's considered a destination view during matching -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe pt-xs bg-surface dark:bg-surface-dim shadow-soft rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-xs">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-sm text-label-sm mt-xs">Forum</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">edit_square</span>
+<span class="font-label-sm text-label-sm mt-xs">Karya-Ku</span>
+</a>
+<!-- Battle Active State -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-md py-xs active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">swords</span>
+<span class="font-label-sm text-label-sm mt-xs font-bold">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-xs">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple countdown logic for visual effect
+        let count = 5;
+        const countdownEl = document.getElementById('countdown');
+        const interval = setInterval(() => {
+            count--;
+            if(count > 0) {
+                countdownEl.textContent = count;
+            } else {
+                clearInterval(interval);
+                countdownEl.textContent = '0';
+                // Trigger next screen logic here in a real app
+            }
+        }, 1000);
+    </script>
+</body></html>

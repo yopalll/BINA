@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forum Diskusi - Modul Belajar Bareng</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#7dd5d7",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#004647",
+                        "error-container": "#ffdad6",
+                        "outline": "#6e7979",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1c1e",
+                        "secondary-container": "#fea360",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#064647",
+                        "tertiary-fixed": "#b6eced",
+                        "on-secondary-fixed": "#301400",
+                        "on-surface": "#1a1c1e",
+                        "primary": "#00696b",
+                        "primary-fixed": "#9af1f3",
+                        "primary-fixed-dim": "#7dd5d7",
+                        "surface-container-low": "#f3f3f6",
+                        "tertiary-fixed-dim": "#9ad0d1",
+                        "on-secondary-fixed-variant": "#713700",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3e4949",
+                        "secondary-fixed-dim": "#ffb784",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "primary-container": "#5fb7b9",
+                        "outline-variant": "#bdc9c8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#002021",
+                        "surface": "#f9f9fc",
+                        "tertiary": "#316768",
+                        "on-tertiary-fixed-variant": "#144e50",
+                        "on-secondary-container": "#753900",
+                        "secondary": "#924c0d",
+                        "secondary-fixed": "#ffdcc6",
+                        "tertiary-container": "#7eb3b4",
+                        "surface-container-high": "#e8e8ea",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004f51",
+                        "inverse-surface": "#2f3133",
+                        "on-primary-fixed": "#002021",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container-highest": "#e2e2e5",
+                        "inverse-on-surface": "#f0f0f3",
+                        "surface-tint": "#00696b",
+                        "background": "#f9f9fc",
+                        "surface-dim": "#dadadc"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "sm": "12px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "container-margin": "20px",
+                        "gutter": "16px"
+                    },
+                    fontFamily: {
+                        "headline-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-xl": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+                        "headline-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-lg": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "headline-lg-mobile": ["22px", { lineHeight: "30px", fontWeight: "700" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .shadow-soft { box-shadow: 0px 4px 20px rgba(95, 183, 185, 0.08); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 24px); }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen antialiased flex flex-col md:flex-row relative">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-soft flex justify-between items-center px-container-margin py-base w-full">
+<div class="flex items-center gap-md">
+<button aria-label="Back" class="md:hidden p-xs rounded-full hover:bg-surface-container-high transition-colors text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container shrink-0">
+<img alt="Student Profile Avatar" class="w-full h-full object-cover" data-alt="A portrait photograph of a cheerful young student with short dark hair, wearing a clean, modern educational uniform in light teal and white colors, smiling warmly into the camera against a soft, bright, slightly blurred classroom background, evoking a friendly and approachable mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfGKfbYXe9W7mNYSR42hvvLHXK_qfBuTOQm_0XfctVqfqoHfcIbnkxdRQvkpxx0FXnvIdOmjeVV3boA19Eal6j0oLG8ydqcbyX_SyaqPSSvrtrHMHrr7iMLSomoNf2vOQxV9MnRg2oUFcxAZBYpvjGUPsSdbVpL_NkdWXdY_GXSRYL7nKDu5JHUG37PIh2TfQ7CTMOI6bUmkR-0N5-Psg3snbedoDUc_P0A3MkxKVQ5EuR_XX_WNCj6A"/>
+</div>
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim">BINA</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Forum Diskusi IPA</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="flex items-center gap-xs px-md py-sm rounded-full bg-surface-container-low hover:bg-primary-container/20 text-primary transition-colors text-label-md font-label-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">record_voice_over</span>
+<span class="hidden md:inline">Accessibility</span>
+</button>
+</div>
+</header>
+<!-- Side Navigation (Web) -->
+<nav class="hidden md:flex flex-col w-64 fixed left-0 top-[72px] bottom-0 bg-surface border-r border-surface-variant px-md py-lg gap-sm overflow-y-auto z-40">
+<a class="flex items-center gap-md px-md py-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-xl bg-secondary-container text-on-secondary-container transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forum</span>
+<span class="font-label-md text-label-md font-semibold">Forum</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">edit_square</span>
+<span class="font-label-md text-label-md">Karya-Ku</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">swords</span>
+<span class="font-label-md text-label-md">Battle</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-[72px] md:ml-64 mb-[88px] md:mb-0 p-container-margin flex flex-col max-w-5xl mx-auto w-full relative">
+<!-- Topic Header -->
+<div class="mb-lg p-lg rounded-3xl bg-surface shadow-soft border border-surface-variant">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm mb-sm">
+<span class="material-symbols-outlined text-[16px]">science</span> Sains &amp; Alam
+                    </span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Mengapa langit berwarna biru?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Diskusi tentang hamburan cahaya dan atmosfer bumi.</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-outline">group</span>
+</div>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">schedule</span> Hari ini, 10:00 AM</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">forum</span> 24 Balasan</span>
+</div>
+</div>
+<!-- Chat Area -->
+<div class="flex-1 flex flex-col gap-lg mb-xl pb-32">
+<!-- Message (Other) -->
+<div class="flex gap-md max-w-[85%]">
+<div class="w-10 h-10 rounded-full overflow-hidden shrink-0 bg-surface-container-high">
+<img alt="User Budi" class="w-full h-full object-cover" data-alt="A portrait photograph of a young female student with glasses and medium length hair, wearing a casual light blue educational top, looking friendly and curious in a bright, soft-focused modern classroom environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG7l6eFc16DxzJsmJZEbyPRUg7vGl-2HveaS8cskx9GVqZoX1u6LDyo568gwnJADBg5WEWJrCTf46FW5sqcQlGz00pcn5HqnPDEIWY4yB2z_QcTZdCCYm4Oez_ozMY5oto423bCh1Syhh0m525yEEVaAUAbjsGU-5ConKrOwd1m8gxIXXg-knt01uVUVk5FAwJY8NP3GiWgumDnt7aNlw-UJdWYmm-dxF5TmA9CJtibuD-gAcr5_3EeQ"/>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex items-baseline gap-sm">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Siti Aisyah</span>
+<span class="font-label-sm text-label-sm text-outline">10:05 AM</span>
+</div>
+<div class="p-md rounded-2xl rounded-tl-sm bg-surface shadow-soft border border-surface-variant text-body-md font-body-md text-on-surface">
+                        Halo teman-teman! Ada yang bisa bantu jelaskan dengan kata-kata sederhana? Aku baca buku tapi masih bingung.
+                    </div>
+</div>
+</div>
+<!-- Message (AI Moderated/Expert) -->
+<div class="flex gap-md max-w-[85%]">
+<div class="w-10 h-10 rounded-full overflow-hidden shrink-0 bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex items-baseline gap-sm">
+<span class="font-label-md text-label-md text-primary font-bold flex items-center gap-xs">
+                            Asisten BINA <span class="material-symbols-outlined text-[14px] text-tertiary">verified</span>
+</span>
+</div>
+<div class="p-md rounded-2xl rounded-tl-sm bg-tertiary-fixed text-on-tertiary-fixed font-body-md text-body-md relative overflow-hidden">
+<div class="absolute top-0 right-0 p-xs bg-white/30 rounded-bl-xl text-[10px] uppercase font-bold flex items-center gap-xs tracking-wider">
+<span class="material-symbols-outlined text-[12px]">security</span> Info Aman
+                        </div>
+<p class="pt-2">Hai Siti! Bayangkan atmosfer bumi itu seperti saringan besar. Saat sinar matahari (yang aslinya warnanya campur-campur seperti pelangi) melewati atmosfer, warna biru 'nyangkut' dan tersebar ke segala arah oleh gas di udara karena gelombangnya lebih pendek. Itulah kenapa mata kita melihat langit berwarna biru.</p>
+</div>
+</div>
+</div>
+<!-- Message (Self) -->
+<div class="flex gap-md max-w-[85%] self-end flex-row-reverse">
+<div class="w-10 h-10 rounded-full overflow-hidden shrink-0 border-2 border-primary-container">
+<img alt="My Profile" class="w-full h-full object-cover" data-alt="A portrait photograph of a cheerful young student with short dark hair, wearing a clean, modern educational uniform in light teal and white colors, smiling warmly into the camera against a soft, bright, slightly blurred classroom background, evoking a friendly and approachable mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTLhg9Z9XakquPIVISXl0hatRXjLCWiutk1U_6UF7J4uW0YBWJoCzGb9mfVF2cBavFiPeaIjkPTu9Ow6tl1tXwN4YDWk3rOGvmPeY7igFmy9eG132Wa2eprGUIdbecvfIRxiiEnnyb5sApG_qe45ovQK-0pUFzDjbvGZZiZI2ke3Gq-pbwskir_jOqm7A_NPoIvClDz0ZFfeScDXTnNp7aAfW1J4Yu_d0LG3iXXxY1312Yay5bca5bHQ"/>
+</div>
+<div class="flex flex-col gap-xs items-end">
+<div class="flex items-baseline gap-sm flex-row-reverse">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Kamu</span>
+<span class="font-label-sm text-label-sm text-outline">10:12 AM</span>
+</div>
+<div class="p-md rounded-2xl rounded-tr-sm bg-primary-container text-on-primary-container text-body-md font-body-md">
+                        Oh, begitu! Jadi seperti cahaya senter yang melewati debu ya?
+                    </div>
+</div>
+</div>
+<!-- Q&A Interactive Snippet -->
+<div class="flex gap-md max-w-[90%] mx-auto w-full mt-lg">
+<div class="w-full p-lg rounded-3xl bg-surface-bright shadow-soft border border-secondary-container/30 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary-container"></div>
+<div class="flex items-center gap-sm mb-sm text-secondary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined">quiz</span>
+                        Kuis Cepat
+                    </div>
+<p class="font-body-md text-body-md text-on-surface mb-md">Warna cahaya apa yang paling banyak dihamburkan oleh atmosfer?</p>
+<div class="grid grid-cols-2 gap-sm">
+<button class="p-sm rounded-xl border border-outline-variant text-center font-label-md text-label-md hover:bg-surface-container-high transition-colors">Merah</button>
+<button class="p-sm rounded-xl border-2 border-primary-container bg-tertiary-fixed text-on-tertiary-fixed text-center font-label-md text-label-md font-bold transition-colors">Biru</button>
+<button class="p-sm rounded-xl border border-outline-variant text-center font-label-md text-label-md hover:bg-surface-container-high transition-colors">Kuning</button>
+<button class="p-sm rounded-xl border border-outline-variant text-center font-label-md text-label-md hover:bg-surface-container-high transition-colors">Hijau</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Input Area (Fixed) -->
+<div class="fixed bottom-[88px] md:bottom-0 md:ml-64 left-0 w-full md:w-[calc(100%-256px)] bg-surface/90 backdrop-blur-md border-t border-surface-variant p-md z-30">
+<div class="max-w-5xl mx-auto flex items-end gap-sm">
+<div class="flex-1 bg-surface-container-low rounded-3xl border border-outline-variant focus-within:border-primary focus-within:ring-2 focus-within:ring-primary-fixed-dim transition-all overflow-hidden flex flex-col min-h-[56px]">
+<textarea class="w-full bg-transparent border-none focus:ring-0 resize-none p-4 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant max-h-32" placeholder="Tulis balasanmu di sini..." rows="1"></textarea>
+<div class="flex justify-between items-center px-sm pb-sm">
+<div class="flex gap-xs">
+<button aria-label="Attach file" class="p-sm rounded-full text-outline hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<button aria-label="Add image" class="p-sm rounded-full text-outline hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">image</span>
+</button>
+</div>
+</div>
+</div>
+<button aria-label="Voice Reply" class="h-14 w-14 rounded-full bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary shadow-soft flex items-center justify-center shrink-0 transition-colors duration-200 hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+<button aria-label="Send Message" class="h-14 px-lg rounded-full bg-primary hover:bg-tertiary text-on-primary shadow-soft flex items-center justify-center shrink-0 font-label-md text-label-md font-bold transition-colors duration-200">
+<span class="hidden md:block mr-sm">Kirim</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe pt-xs bg-surface dark:bg-surface-dim shadow-soft rounded-t-xl border-none">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-md py-xs active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forum</span>
+<span class="font-label-sm text-label-sm font-semibold">Forum</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">edit_square</span>
+<span class="font-label-sm text-label-sm">Karya-Ku</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">swords</span>
+<span class="font-label-sm text-label-sm">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

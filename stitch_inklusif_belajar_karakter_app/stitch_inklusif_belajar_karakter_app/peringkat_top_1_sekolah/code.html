@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Leaderboard Karakter - Top 1 School</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#7dd5d7",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#004647",
+                        "error-container": "#ffdad6",
+                        "outline": "#6e7979",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1c1e",
+                        "secondary-container": "#fea360",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#064647",
+                        "tertiary-fixed": "#b6eced",
+                        "on-secondary-fixed": "#301400",
+                        "on-surface": "#1a1c1e",
+                        "primary": "#00696b",
+                        "primary-fixed": "#9af1f3",
+                        "primary-fixed-dim": "#7dd5d7",
+                        "surface-container-low": "#f3f3f6",
+                        "tertiary-fixed-dim": "#9ad0d1",
+                        "on-secondary-fixed-variant": "#713700",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3e4949",
+                        "secondary-fixed-dim": "#ffb784",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "primary-container": "#5fb7b9",
+                        "outline-variant": "#bdc9c8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#002021",
+                        "surface": "#f9f9fc",
+                        "tertiary": "#316768",
+                        "on-tertiary-fixed-variant": "#144e50",
+                        "on-secondary-container": "#753900",
+                        "secondary": "#924c0d",
+                        "secondary-fixed": "#ffdcc6",
+                        "tertiary-container": "#7eb3b4",
+                        "surface-container-high": "#e8e8ea",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004f51",
+                        "inverse-surface": "#2f3133",
+                        "on-primary-fixed": "#002021",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container-highest": "#e2e2e5",
+                        "inverse-on-surface": "#f0f0f3",
+                        "surface-tint": "#00696b",
+                        "background": "#f9f9fc",
+                        "surface-dim": "#dadadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "container-margin": "20px",
+                        "gutter": "16px",
+                        "safe": "env(safe-area-inset-bottom)"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["22px", { "lineHeight": "30px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .shadow-soft {
+            box-shadow: 0px 4px 20px rgba(95, 183, 185, 0.08);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Subtle glow for the top ranker */
+        .gold-glow {
+            box-shadow: 0 0 40px rgba(254, 163, 96, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pt-[80px] pb-[100px] antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim bg-surface-container-low dark:bg-surface-container-highest shadow-soft flex justify-between items-center px-container-margin py-base w-full h-[64px]">
+<div class="flex items-center gap-sm">
+<img alt="Student Profile Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A small, stylized avatar illustration of a student in a teal school uniform, set against a bright, friendly light-mode background, clean vector style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASP0Rr0_ffWlstHeo_cqUozR2_Jq8e3FRxuVRbkQ2FzGOYPUiENYTLGqsDEyysQhERAMsUj9bR8cLYHh_T4_qxvkCx_JNQznyBUgMOmXwQ1O7RseiYU_a2PPV8ueuSFcVHAQtITbrMmhJ9alwn8yJNGk50cwSqzZL9yLh-piVJcWgtXmE1o9nHLbrY---EQXz_svzW96yQ1cQfDXzArrBgy2N0VsndzMQKBBFWt_E0xSb6WD0wnY8ejQ"/>
+</div>
+<h1 class="font-headline-xl text-headline-xl font-bold text-primary dark:text-primary-fixed-dim absolute left-1/2 -translate-x-1/2">BINA</h1>
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-primary-container/20 dark:hover:bg-primary-fixed/10 transition-colors scale-95 active:scale-90 transition-transform rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">accessibility_new</span>
+</button>
+</header>
+<!-- Main Content Grid -->
+<main class="mx-auto max-w-lg px-container-margin md:px-xl flex flex-col gap-lg">
+<!-- Context Header -->
+<div class="text-center mt-md">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Hall of Fame</h2>
+<p class="font-body-md text-on-surface-variant mt-xs">Karakter Tertinggi Sekolah</p>
+</div>
+<!-- Hero Section: Top 1 Student (Glassmorphism & Tonal Layers) -->
+<section class="relative bg-gradient-to-br from-primary-container to-tertiary-container rounded-3xl p-1 pb-6 shadow-soft gold-glow">
+<!-- Decorative Background Pattern -->
+<div class="absolute inset-0 rounded-3xl opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+<div class="bg-surface rounded-[22px] p-6 flex flex-col items-center relative z-10">
+<!-- Crown Icon -->
+<div class="absolute -top-6 bg-secondary-container rounded-full p-3 shadow-soft border-4 border-surface">
+<span class="material-symbols-outlined text-on-secondary-container text-[32px] icon-fill">workspace_premium</span>
+</div>
+<div class="mt-8 relative">
+<img alt="Top Student" class="w-32 h-32 rounded-full object-cover border-4 border-primary shadow-soft" data-alt="A high-quality, professional portrait illustration of a confident top-ranking student. The student is smiling warmly, wearing a crisp modern school uniform with subtle teal accents. The lighting is bright and studio-like, projecting optimism and academic excellence, set against a soft, abstract light-mode background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7qRIYuQBOUhoa12KHhyZxW8TTxJFr1ryU4oDIMqJ4zvyMhBauE7aSG7JJEbR9UC0IMcs6S27tPm_xhXL5Nj-sBo0w82VDA4WopqsovF7AjrlM8E--ggSJW2OYA_LNVqwyQgo5Vy6nxh1YgPTudhVd0fsfmiSLNVQsF2H75IDFawfiR90wM418_DHONAQg5GZxqIBhrI0UYPyTk2j_1TiTB7BfPibUetaw0e8aGHLa7NYMj7Iz9FSFSw"/>
+<div class="absolute -bottom-3 right-0 bg-secondary rounded-full px-sm py-xs text-on-secondary font-label-sm border-2 border-surface flex items-center gap-1 shadow-soft">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+<span>#1</span>
+</div>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-md">Ahmad Reza</h3>
+<p class="font-body-md text-on-surface-variant text-center">Kelas 11 IPA 2</p>
+<!-- Total Points Chip -->
+<div class="mt-md bg-primary rounded-full px-lg py-sm flex items-center gap-2 shadow-soft">
+<span class="material-symbols-outlined text-secondary-container icon-fill text-[20px]">local_fire_department</span>
+<span class="font-headline-md text-headline-md text-on-primary">12,450 XP</span>
+</div>
+</div>
+</section>
+<!-- Aksi Nyata Badges (Bento Grid Style) -->
+<section class="flex flex-col gap-md">
+<h4 class="font-headline-md text-headline-md text-on-surface">Koleksi Aksi Nyata</h4>
+<div class="grid grid-cols-2 gap-md">
+<!-- Badge Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-md flex flex-col items-center text-center shadow-soft border border-surface-container-low transition-transform hover:scale-[1.02]">
+<div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center mb-sm">
+<span class="material-symbols-outlined text-on-secondary-fixed text-[32px] icon-fill">recycling</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Pahlawan Bumi</span>
+<span class="font-label-sm text-label-sm text-primary mt-xs">+500 XP</span>
+</div>
+<!-- Badge Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-md flex flex-col items-center text-center shadow-soft border border-surface-container-low transition-transform hover:scale-[1.02]">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center mb-sm">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-[32px] icon-fill">diversity_3</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Sahabat Teman</span>
+<span class="font-label-sm text-label-sm text-primary mt-xs">+450 XP</span>
+</div>
+<!-- Badge Card 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-md flex flex-col items-center text-center shadow-soft border border-surface-container-low transition-transform hover:scale-[1.02] col-span-2 flex-row justify-start text-left gap-md">
+<div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container text-[28px] icon-fill">menu_book</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Tutor Sebaya Master</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-xs">Membantu 20 teman dalam belajar kelompok bulan ini.</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold ml-auto bg-surface-container px-2 py-1 rounded-full">+1000 XP</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface dark:bg-surface-dim shadow-soft fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe pt-xs min-h-[72px] md:hidden border-t border-surface-container-low">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="font-label-sm text-label-sm mt-xs">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]">forum</span>
+<span class="font-label-sm text-label-sm mt-xs">Forum</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]">edit_square</span>
+<span class="font-label-sm text-label-sm mt-xs">Karya-Ku</span>
+</a>
+<!-- Active Tab: Battle (Leaderboard context) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px] icon-fill">swords</span>
+<span class="font-label-sm text-label-sm mt-xs">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="font-label-sm text-label-sm mt-xs">Profile</span>
+</a>
+</nav>
+</body></html>

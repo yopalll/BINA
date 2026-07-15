@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Battle HOTS - Result Win</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#7dd5d7",
+                      "on-error-container": "#93000a",
+                      "on-primary-container": "#004647",
+                      "error-container": "#ffdad6",
+                      "outline": "#6e7979",
+                      "error": "#ba1a1a",
+                      "on-background": "#1a1c1e",
+                      "secondary-container": "#fea360",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-container": "#064647",
+                      "tertiary-fixed": "#b6eced",
+                      "on-secondary-fixed": "#301400",
+                      "on-surface": "#1a1c1e",
+                      "primary": "#00696b",
+                      "primary-fixed": "#9af1f3",
+                      "primary-fixed-dim": "#7dd5d7",
+                      "surface-container-low": "#f3f3f6",
+                      "tertiary-fixed-dim": "#9ad0d1",
+                      "on-secondary-fixed-variant": "#713700",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#3e4949",
+                      "secondary-fixed-dim": "#ffb784",
+                      "surface-bright": "#f9f9fc",
+                      "surface-container": "#eeeef0",
+                      "primary-container": "#5fb7b9",
+                      "outline-variant": "#bdc9c8",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#002021",
+                      "surface": "#f9f9fc",
+                      "tertiary": "#316768",
+                      "on-tertiary-fixed-variant": "#144e50",
+                      "on-secondary-container": "#753900",
+                      "secondary": "#924c0d",
+                      "secondary-fixed": "#ffdcc6",
+                      "tertiary-container": "#7eb3b4",
+                      "surface-container-high": "#e8e8ea",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed-variant": "#004f51",
+                      "inverse-surface": "#2f3133",
+                      "on-primary-fixed": "#002021",
+                      "surface-variant": "#e2e2e5",
+                      "surface-container-highest": "#e2e2e5",
+                      "inverse-on-surface": "#f0f0f3",
+                      "surface-tint": "#00696b",
+                      "background": "#f9f9fc",
+                      "surface-dim": "#dadadc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "base": "8px",
+                      "xl": "32px",
+                      "xs": "4px",
+                      "lg": "24px",
+                      "md": "16px",
+                      "container-margin": "20px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-xl": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "22px",
+                              {
+                                      "lineHeight": "30px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+        .bounce-in {
+            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Confetti Container -->
+<div class="absolute inset-0 z-0 pointer-events-none" id="confetti-container"></div>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md mx-auto px-container-margin py-xl relative z-10 flex flex-col items-center text-center">
+<!-- Trophy/Victory Image -->
+<div class="w-48 h-48 mb-lg bounce-in opacity-0 rounded-full overflow-hidden border-8 border-primary-container shadow-[0px_4px_20px_rgba(95,183,185,0.2)]">
+<img class="w-full h-full object-cover" data-alt="A vibrant, stylized 3D render of a gleaming gold trophy cup surrounded by floating, glowing geometric shapes and sparkling confetti. The aesthetic is playful, modern, and highly polished, using soft, rounded edges and bright, optimistic lighting suitable for a high-end educational app's victory screen. The background is a very subtle, soft gradient of light teal and off-white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHV7IxH-o9ymzfc6rZOMuN9NP_fl6JsPGQrpdakb2OFlLEfViat6rHU-OCYhg17Wojaft8k2YOtWdw9npoGwbMDNNLl5WKbFB74x4ImuN6X0H4TTlsycF8GXKpKwxk6mHJ35M0chCyZmszKGjxXABvdu_-SJxGxXGaefSxr142N-OhkFs9qXr8r0Gz-REUi7NQOZcI1TDX2uwp1BmI29oQMuOLLOQmKpAdHl3_ll9Yx6NXxEz4jKgRLw"/>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-xl text-headline-xl text-primary mb-sm bounce-in opacity-0" style="animation-delay: 0.2s;">You Win!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl bounce-in opacity-0" style="animation-delay: 0.3s;">Outstanding performance in Battle HOTS.</p>
+<!-- Stats Grid (Bento Style) -->
+<div class="grid grid-cols-2 gap-gutter w-full mb-xl">
+<!-- Points Card -->
+<div class="bg-surface-container-low rounded-3xl p-md flex flex-col items-center justify-center shadow-[0px_4px_20px_rgba(95,183,185,0.08)] bounce-in opacity-0" style="animation-delay: 0.4s;">
+<span class="material-symbols-outlined text-secondary-container mb-sm text-4xl">stars</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">+150</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Points Earned</span>
+</div>
+<!-- Rank Card -->
+<div class="bg-tertiary rounded-3xl p-md flex flex-col items-center justify-center shadow-[0px_4px_20px_rgba(95,183,185,0.08)] bounce-in opacity-0" style="animation-delay: 0.5s;">
+<span class="material-symbols-outlined text-tertiary-fixed mb-sm text-4xl">emoji_events</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-tertiary">#12</span>
+<span class="font-label-md text-label-md text-on-tertiary/80">Global Rank</span>
+</div>
+</div>
+<!-- Badges Earned Section -->
+<div class="w-full bg-surface-container rounded-3xl p-lg mb-xl shadow-[0px_4px_20px_rgba(95,183,185,0.08)] bounce-in opacity-0" style="animation-delay: 0.6s;">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-md text-left">New Badges Unlocked</h2>
+<div class="flex gap-gutter overflow-x-auto pb-sm">
+<div class="flex flex-col items-center flex-shrink-0 w-24">
+<div class="w-16 h-16 rounded-full bg-secondary-container/20 flex items-center justify-center mb-xs">
+<span class="material-symbols-outlined filled-icon text-secondary text-3xl">local_fire_department</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface text-center">Hot Streak</span>
+</div>
+<div class="flex flex-col items-center flex-shrink-0 w-24">
+<div class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center mb-xs">
+<span class="material-symbols-outlined filled-icon text-primary text-3xl">psychology</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface text-center">Sharp Mind</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="w-full flex flex-col gap-sm bounce-in opacity-0" style="animation-delay: 0.7s;">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-[16px] rounded-full hover:bg-primary-container/90 transition-colors shadow-[0px_4px_20px_rgba(95,183,185,0.08)] flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">share</span>
+                Share to Karya-Ku
+            </button>
+<button class="w-full bg-surface-container-low text-primary font-label-md text-label-md py-[16px] rounded-full hover:bg-surface-container-high transition-colors">
+                Back to Home
+            </button>
+</div>
+</main>
+<script>
+        // Simple Confetti Effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#5fb7b9', '#fea360', '#9af1f3', '#7eb3b4'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                // Randomize properties
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 8 + 4 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                
+                const duration = Math.random() * 2 + 2;
+                confetti.style.animationDuration = duration + 's';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                
+                container.appendChild(confetti);
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard - Teacher View | BINA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#7dd5d7",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#004647",
+                    "error-container": "#ffdad6",
+                    "outline": "#6e7979",
+                    "error": "#ba1a1a",
+                    "on-background": "#1a1c1e",
+                    "secondary-container": "#fea360",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#064647",
+                    "tertiary-fixed": "#b6eced",
+                    "on-secondary-fixed": "#301400",
+                    "on-surface": "#1a1c1e",
+                    "primary": "#00696b",
+                    "primary-fixed": "#9af1f3",
+                    "primary-fixed-dim": "#7dd5d7",
+                    "surface-container-low": "#f3f3f6",
+                    "tertiary-fixed-dim": "#9ad0d1",
+                    "on-secondary-fixed-variant": "#713700",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#3e4949",
+                    "secondary-fixed-dim": "#ffb784",
+                    "surface-bright": "#f9f9fc",
+                    "surface-container": "#eeeef0",
+                    "primary-container": "#5fb7b9",
+                    "outline-variant": "#bdc9c8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#002021",
+                    "surface": "#f9f9fc",
+                    "tertiary": "#316768",
+                    "on-tertiary-fixed-variant": "#144e50",
+                    "on-secondary-container": "#753900",
+                    "secondary": "#924c0d",
+                    "secondary-fixed": "#ffdcc6",
+                    "tertiary-container": "#7eb3b4",
+                    "surface-container-high": "#e8e8ea",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#004f51",
+                    "inverse-surface": "#2f3133",
+                    "on-primary-fixed": "#002021",
+                    "surface-variant": "#e2e2e5",
+                    "surface-container-highest": "#e2e2e5",
+                    "inverse-on-surface": "#f0f0f3",
+                    "surface-tint": "#00696b",
+                    "background": "#f9f9fc",
+                    "surface-dim": "#dadadc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "base": "8px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "container-margin": "20px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["22px", {"lineHeight": "30px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .shadow-soft {
+            box-shadow: 0px 4px 20px rgba(95, 183, 185, 0.08);
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen pb-[90px] md:pb-0 md:pt-[72px]">
+<!-- TopAppBar (Web & Mobile) -->
+<header class="bg-surface dark:bg-surface-dim fixed top-0 w-full z-50 bg-surface-container-low dark:bg-surface-container-highest shadow-soft flex justify-between items-center px-container-margin py-base w-full">
+<div class="flex items-center gap-md">
+<!-- Mobile: Avatar Leading -->
+<div class="md:hidden">
+<img alt="Teacher Profile Avatar" class="w-10 h-10 rounded-full object-cover shadow-soft" data-alt="A small, friendly profile picture avatar of an Indonesian teacher, male, wearing neat casual attire. The image is a crisp, bright, high-resolution portrait on a soft teal background, suitable for a modern educational app UI. Circular crop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq4k_Uofi7rPHdSFqDTvNQ3DfFznQwqhkcfmeBCLMLkqncAifgCuyfWrFTh59l7IepW6GE3GWIUHNPad9EUDhRe-_2pujqZ1Ej9Mo_QuCZL67TRTZua2Ys7i9sb60ZkrO2PmXw3KRpvvX5uJe8XF0KBdiLk9WNv-jzd7v3l0DQAK2c1QGgBg78_5eOUG4xoEE8b2bf-9ytI6iPMzkIqDlrnlqAyutdq7o-iuKC89oNFZAG1F6EkEy1EQ"/>
+</div>
+<h1 class="font-headline-xl text-headline-xl font-bold text-primary dark:text-primary-fixed-dim">BINA</h1>
+<span class="hidden md:inline-block ml-2 px-3 py-1 bg-tertiary-container rounded-full text-on-tertiary-container font-label-sm text-label-sm">Teacher View</span>
+</div>
+<!-- Web Navigation (Hidden on Mobile) -->
+<nav class="hidden md:flex gap-lg items-center">
+<a class="text-primary dark:text-primary-fixed-dim font-bold font-label-md text-label-md flex flex-col items-center group" href="#">
+<span class="material-symbols-outlined mb-xs group-hover:bg-primary-container/20 rounded-lg p-1 transition-colors" style="font-variation-settings: 'FILL' 1;">home</span>
+                Home
+            </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:bg-primary-container/20 dark:hover:bg-primary-fixed/10 transition-colors font-label-md text-label-md flex flex-col items-center group rounded-lg p-1" href="#">
+<span class="material-symbols-outlined mb-xs">forum</span>
+                Forum
+            </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:bg-primary-container/20 dark:hover:bg-primary-fixed/10 transition-colors font-label-md text-label-md flex flex-col items-center group rounded-lg p-1" href="#">
+<span class="material-symbols-outlined mb-xs">edit_square</span>
+                Karya-Ku
+            </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:bg-primary-container/20 dark:hover:bg-primary-fixed/10 transition-colors font-label-md text-label-md flex flex-col items-center group rounded-lg p-1" href="#">
+<span class="material-symbols-outlined mb-xs">swords</span>
+                Battle
+            </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:bg-primary-container/20 dark:hover:bg-primary-fixed/10 transition-colors font-label-md text-label-md flex flex-col items-center group rounded-lg p-1" href="#">
+<span class="material-symbols-outlined mb-xs">person</span>
+                Profile
+            </a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-primary-container/20 dark:hover:bg-primary-fixed/10 transition-colors p-2 rounded-full scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">settings_accessibility</span>
+</button>
+<div class="hidden md:block">
+<img alt="Teacher Profile Avatar" class="w-10 h-10 rounded-full object-cover shadow-soft" data-alt="A small, friendly profile picture avatar of an Indonesian teacher, female, wearing a hijab and neat casual attire. The image is a crisp, bright, high-resolution portrait on a soft teal background, suitable for a modern educational app UI. Circular crop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8cehQ04M3oaJdViBGIX5oLuQpj3NHFQVJt3T_VFNwege-O6irMEyMuCWowmga8YTzjMvLoYgzw-rE5wg89KxgRqizTtNdzNeSRKWp64w0R39ic_ugyjHpeIF7DtTXewL3rP0JJsKv6NkUkLCU7KsihzzSGpZJjHzKDIXTpeWZNlJlJrB_hzi3mmFYW6Kx09UGbP65ndreu4I2c-wZoSXzXOFl4nO5rPppyhEUg_spTGsICmwI9cvquQ"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-container-margin md:px-xl py-lg max-w-7xl mx-auto space-y-xl mt-[70px] md:mt-0">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary">Class X-A Overview</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">AI-driven insights for term 2</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm bg-surface-container border border-outline-variant rounded-full text-on-surface font-label-md text-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                    Last 30 Days
+                </button>
+<button class="px-md py-sm bg-primary rounded-full text-on-primary font-label-md text-label-md shadow-soft flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                    Export
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter md:gap-lg">
+<!-- Sentiment Analysis (Span 8) -->
+<section class="col-span-1 md:col-span-8 bg-surface-container-lowest rounded-3xl p-md md:p-lg border border-surface-variant shadow-soft flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Journal Sentiment Analysis</h3>
+<span class="material-symbols-outlined text-outline">info</span>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<!-- Faux Chart Area -->
+<div class="relative h-48 w-full flex items-end justify-around gap-2 mb-md">
+<!-- Bars -->
+<div class="w-1/6 bg-tertiary-fixed-dim rounded-t-lg h-[30%] flex flex-col justify-end items-center pb-2 group relative">
+<span class="opacity-0 group-hover:opacity-100 absolute -top-8 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded transition-opacity">12%</span>
+</div>
+<div class="w-1/6 bg-tertiary-container rounded-t-lg h-[50%] flex flex-col justify-end items-center pb-2 group relative">
+<span class="opacity-0 group-hover:opacity-100 absolute -top-8 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded transition-opacity">25%</span>
+</div>
+<div class="w-1/6 bg-primary-container rounded-t-lg h-[80%] flex flex-col justify-end items-center pb-2 group relative">
+<span class="opacity-0 group-hover:opacity-100 absolute -top-8 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded transition-opacity">45%</span>
+</div>
+<div class="w-1/6 bg-secondary-container rounded-t-lg h-[40%] flex flex-col justify-end items-center pb-2 group relative">
+<span class="opacity-0 group-hover:opacity-100 absolute -top-8 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded transition-opacity">15%</span>
+</div>
+<div class="w-1/6 bg-error-container rounded-t-lg h-[15%] flex flex-col justify-end items-center pb-2 group relative">
+<span class="opacity-0 group-hover:opacity-100 absolute -top-8 bg-inverse-surface text-inverse-on-surface text-xs py-1 px-2 rounded transition-opacity">3%</span>
+</div>
+</div>
+<div class="flex justify-around border-t border-surface-variant pt-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Very Sad</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sad</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Neutral</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Happy</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Excited</span>
+</div>
+</div>
+<div class="mt-md bg-surface-container-low p-sm rounded-2xl flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-1">auto_awesome</span>
+<p class="font-body-md text-body-md text-on-surface"><strong>AI Insight:</strong> 45% of students are expressing increased enthusiasm in recent journals, likely linked to the recent project-based learning module.</p>
+</div>
+</section>
+<!-- Character Points (Span 4) -->
+<section class="col-span-1 md:col-span-4 bg-tertiary text-on-tertiary rounded-3xl p-md md:p-lg shadow-soft flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md">Character Points</h3>
+<span class="material-symbols-outlined text-tertiary-fixed">stars</span>
+</div>
+<div class="text-center my-lg">
+<span class="font-headline-xl text-headline-xl text-5xl font-extrabold text-primary-fixed">14,250</span>
+<p class="font-label-md text-label-md text-tertiary-fixed-dim mt-xs">Total class points awarded</p>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="bg-on-tertiary-fixed-variant p-sm rounded-2xl flex justify-between items-center">
+<span class="font-label-md text-label-md">Collaboration</span>
+<span class="font-label-md text-label-md text-primary-fixed">+450</span>
+</div>
+<div class="bg-on-tertiary-fixed-variant p-sm rounded-2xl flex justify-between items-center">
+<span class="font-label-md text-label-md">Creativity</span>
+<span class="font-label-md text-label-md text-secondary-fixed">+320</span>
+</div>
+<div class="bg-on-tertiary-fixed-variant p-sm rounded-2xl flex justify-between items-center">
+<span class="font-label-md text-label-md">Critical Thinking</span>
+<span class="font-label-md text-label-md text-tertiary-fixed">+280</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface dark:bg-surface-dim fixed bottom-0 w-full z-50 rounded-t-xl bg-surface dark:bg-surface-dim shadow-soft fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-base pb-safe pt-xs">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-sm text-label-sm mt-1">Forum</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">edit_square</span>
+<span class="font-label-sm text-label-sm mt-1">Karya-Ku</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">swords</span>
+<span class="font-label-sm text-label-sm mt-1">Battle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-2xl active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
